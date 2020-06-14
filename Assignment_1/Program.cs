@@ -20,15 +20,15 @@ namespace Assignment_1
 
       private static void DisplayMenu()
       {
-         Console.WriteLine("===================================================");
+         Console.WriteLine("=====================================================");
          Console.WriteLine("    Finding student(s) having the highest grade");
-         Console.WriteLine("===================================================");
+         Console.WriteLine("=====================================================");
          Console.WriteLine(" Press 1 to add a student's grade");
          Console.WriteLine(" Press 2 to add a number of students' grade");
          Console.WriteLine(" Press 3 to display all student's grade entered");
-         Console.WriteLine(" Press 4 to display the highest grade");
+         Console.WriteLine(" Press 4 to display student(s) having highest grade");
          Console.WriteLine(" Press 0 to exit the program");
-         Console.WriteLine("===================================================");
+         Console.WriteLine("=====================================================");
          return;
       }
       private static int GetUserChoice()
