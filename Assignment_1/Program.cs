@@ -15,64 +15,66 @@ namespace Assignment_1
             userChoice = GetUserChoice();
             ExecuteOption(grades, userChoice);
          } while (userChoice != 0);
-
       }
-
       private static void DisplayMenu()
       {
          Console.WriteLine("=====================================================");
-         Console.WriteLine("    Finding student(s) having the highest grade");
+         Console.WriteLine(" Finding student(s) having the highest grade");
          Console.WriteLine("=====================================================");
          Console.WriteLine(" Press 1 to add a student's grade");
          Console.WriteLine(" Press 2 to add a specific number of students' grade");
-         Console.WriteLine(" Press 3 to display all student's grade entered");
+         Console.WriteLine(" Press 3 to display students' grade entered");
          Console.WriteLine(" Press 4 to display student(s) having highest grade");
          Console.WriteLine(" Press 0 to exit the program");
          Console.WriteLine("=====================================================");
-         return;
       }
       private static int GetUserChoice()
       {
-         Console.Write("Enter choice [0 -> 4]: ");
-         if (int.TryParse(Console.ReadLine(), out int res))
+         int res;
+         do
          {
-            if (res >= 0 && res <= 4)
-               return res;
-         }
-         return GetUserChoice();
+            do
+            {
+               Console.Write("Enter user choice [0 -> 4]: ");
+            } while (!int.TryParse(Console.ReadLine(), out res));
+         } while (res < 0 || res > 5);
+         return res;
       }
       private static int EnterStudent()
       {
-         Console.Write("Enter student's grade [0 -> 100]: ");
-
-         if (int.TryParse(Console.ReadLine(), out int res))
+         int res;
+         do
          {
-            if (0 <= res && res <= 100)
-               return res;
-         }
-         return EnterStudent();
+            do
+            {
+               Console.Write("Enter student's grade [0 -> 100]: ");
+            } while (!int.TryParse(Console.ReadLine(), out res));
+         } while (res < 0 || res > 100);
+         return res;
       }
       private static int EnterQuantity()
       {
-         Console.Write("Enter the number of students [1 -> 10]: ");
-
-         if (int.TryParse(Console.ReadLine(), out int res))
+         int res;
+         do
          {
-            if (0 < res && res <= 10)
-               return res;
-         }
-         return EnterQuantity();
+            do
+            {
+               Console.Write("Enter a specific number of students [1 -> 10]: ");
+            } while (!int.TryParse(Console.ReadLine(), out res));
+         } while (res <= 0 || res > 10);
+         return res;
       }
       private static int EnterStudent(int index)
       {
-         Console.Write($"Enter the {index} student's grade [0 -> 100]: ");
-
-         if (int.TryParse(Console.ReadLine(), out int res))
+         int res;
+         do
          {
-            if (0 <= res && res <= 100)
-               return res;
-         }
-         return EnterStudent(index);
+            do
+            {
+               Console.Write($"Enter the {index} student's grade [0 -> 100]: ");
+            } while (!int.TryParse(Console.ReadLine(), out res));
+         } while (res < 0 || res > 100);
+         return res;
       }
       private static void EnterManyStudents(List<int> grades)
       {
@@ -98,10 +100,10 @@ namespace Assignment_1
       }
       private static void DisplayMaxGradeIndex(List<int> grades, List<int> index)
       {
-         Console.WriteLine("| {0,10} | {0,10} |", "NO", "ID");
+         Console.WriteLine("| {0,10} | {1,10} |", "NO", "StudentNO");
          for (int i = 0; i < index.Count; i++)
          {
-            Console.WriteLine("| {0,10} | {1,10} |", i + 1, grades[index[i]]);
+            Console.WriteLine("| {0,10} | {1,10} |", i + 1, index[i] + 1);
          }
       }
       private static void DisplayMaxGrade(List<int> grades)
