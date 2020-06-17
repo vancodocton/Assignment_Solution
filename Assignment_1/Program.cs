@@ -40,7 +40,6 @@ namespace Assignment_1
          } while (res < 0 || res > 5);
          return res;
       }
-
       private static void ExecuteOption(List<int> grades, int userChoice)
       {
          switch (userChoice)
@@ -85,7 +84,7 @@ namespace Assignment_1
             {
                Console.Write("Enter a specific number of students [1 -> 10]: ");
             } while (!int.TryParse(Console.ReadLine(), out res));
-         } while (res <= 0 || res > 10);
+         } while (res < 1 || res > 10);
          return res;
       }
       private static int EnterStudent(int index)
@@ -120,14 +119,13 @@ namespace Assignment_1
          {
             Console.WriteLine("| {0,10} | {1,10} |", i + 1, grades[i]);
          }
-         return;
       }
-      private static void DisplayMaxGradeIndex(List<int> grades, List<int> index)
+      private static void DisplayMaxGradeIndex(List<int> indexes)
       {
          Console.WriteLine("| {0,10} | {1,10} |", "NO", "StudentNO");
-         for (int i = 0; i < index.Count; i++)
+         for (int i = 0; i < indexes.Count; i++)
          {
-            Console.WriteLine("| {0,10} | {1,10} |", i + 1, index[i] + 1);
+            Console.WriteLine("| {0,10} | {1,10} |", i + 1, indexes[i] + 1);
          }
       }
       private static void DisplayMaxGrade(List<int> grades)
@@ -137,7 +135,7 @@ namespace Assignment_1
             Console.WriteLine("There's nothing entered");
             return;
          }
-         List<int> index = new List<int>();
+         List<int> indexes = new List<int>();
          int maxNum = int.MinValue;
 
          for (int i = 0; i < grades.Count; i++)
@@ -145,17 +143,16 @@ namespace Assignment_1
             if (grades[i] > maxNum)
             {
                maxNum = grades[i];
-               index = new List<int> { i };
+               indexes = new List<int> { i };
             }
             else if (grades[i] == maxNum)
             {
-               index.Add(i);
+               indexes.Add(i);
             }
          }
 
          Console.WriteLine("The highest grade: {0}", maxNum);
-         DisplayMaxGradeIndex(grades, index);
-         return;
+         DisplayMaxGradeIndex(indexes);
       }
       private static void DisplayExitMessage()
       {
@@ -164,3 +161,7 @@ namespace Assignment_1
       }
    }
 }
+
+
+
+
