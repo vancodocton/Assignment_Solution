@@ -40,6 +40,30 @@ namespace Assignment_1
          } while (res < 0 || res > 5);
          return res;
       }
+
+      private static void ExecuteOption(List<int> grades, int userChoice)
+      {
+         switch (userChoice)
+         {
+            case 1:
+               grades.Add(EnterStudent());
+               break;
+            case 2:
+               EnterManyStudents(grades);
+               break;
+            case 3:
+               DisplayStudents(grades);
+               break;
+            case 4:
+               DisplayMaxGrade(grades);
+               break;
+            case 0:
+               DisplayExitMessage();
+               break;
+            default:
+               break;
+         }
+      }
       private static int EnterStudent()
       {
          int res;
@@ -137,29 +161,6 @@ namespace Assignment_1
       {
          Console.Write("Thanks for using. Press any key to exit...");
          _ = Console.ReadKey();
-      }
-      private static void ExecuteOption(List<int> grades, int userChoice)
-      {
-         switch (userChoice)
-         {
-            case 1:
-               grades.Add(EnterStudent());
-               break;
-            case 2:
-               EnterManyStudents(grades);
-               break;
-            case 3:
-               DisplayStudents(grades);
-               break;
-            case 4:
-               DisplayMaxGrade(grades);
-               break;
-            case 0:
-               DisplayExitMessage();
-               break;
-            default:
-               break;
-         }
       }
    }
 }
