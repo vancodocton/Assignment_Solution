@@ -8,20 +8,26 @@ namespace Assignment_2
 {
    class Class
    {
-      private List<Student> Students = new List<Student>();
-
-      public string Name;
+      private string Name;
       public bool AddName(string name)
       {
          Name = name;
          return true;
       }
+      public string GetName()
+      {
+         return Name;
+      }
 
-      public string Curriculum;
+      private string Curriculum;
       public bool AddCurriculim(string curriculum)
       {
          Curriculum = curriculum;
          return true;
+      }
+      public string GetCurriculum()
+      {
+         return Curriculum;
       }
    }
 }

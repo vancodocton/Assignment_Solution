@@ -11,7 +11,7 @@ namespace Assignment_2
       public static float MinMark = 0;
       public static float MaxMark = 10;
 
-      public int ID;
+      private int ID;
       public bool AddID(int id)
       {
          if (id > 0)
@@ -21,15 +21,22 @@ namespace Assignment_2
          }
          else return false;
       }
-
-      public string Name;
+      public int GetID()
+      {
+         return ID;
+      }
+      private string Name;
       public bool AddName(string name)
       {
          Name = name;
          return true;
       }
+      public string GetName()
+      {
+         return Name;
+      }
 
-      public float Mark = 0;
+      private float Mark = 0;
       public bool AddMark(float mark)
       {
          if (mark >= MinMark && mark <= MaxMark)
@@ -39,8 +46,11 @@ namespace Assignment_2
          }
          else return false;
       }
-
-      public char Grade()
+      public float GetMark()
+      {
+         return Mark;
+      }
+      public char GetGrade()
       {
          if (Mark < 4.5)
          {
