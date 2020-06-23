@@ -1,0 +1,33 @@
+﻿      public static float MinMark = 0;
+      public static float MaxMark = 10;
+      private float Mark = 0;
+      public bool AddMark(float mark)
+      {
+         if (mark >= MinMark && mark <= MaxMark)
+         {
+            Mark = mark;
+            return true;
+         }
+         else return false;
+      }
+      public float GetMark()
+      {
+         return Mark;
+      }
+      public char GetGrade()
+      {
+         if (Mark < 4.5)
+         {
+            return 'F';
+         }
+         else if (Mark < 8)
+         {
+            return 'P';
+         }
+         else if (Mark < 10)
+         {
+            return 'M';
+
+         }
+         else return 'D';
+      }

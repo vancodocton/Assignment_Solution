@@ -20,19 +20,6 @@ namespace Assignment_2
       {
          return Name;
       }
-      private static int GetID()
-      {
-         int res;
-         do
-         {
-            Console.Write("Enter student ID [0 -> +oo]: ");
-         } while (!int.TryParse(Console.ReadLine(), out res));
-         return res;
-      }
-      public void AddStudent()
-      {
-         Student student = new Student();
-         while (student.AddID(GetID())) ;
-      }
+
    }
 }
