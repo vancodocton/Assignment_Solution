@@ -5,10 +5,10 @@ namespace GraddingSystem
    internal class GradeRecord
    {
       protected List<float> MonthMarks { get; private set; }
-      internal protected float MidtermMark { get; private set; }
-      internal protected float FinalMark { get; private set; }
+      protected internal float MidtermMark { get; private set; }
+      protected internal float FinalMark { get; private set; }
 
-      internal protected float AverageMonthMarks
+      protected internal float AverageMonthMarks
       {
          get
          {
@@ -27,14 +27,14 @@ namespace GraddingSystem
             }
          }
       }
-      internal protected float TotalMark
+      protected internal float TotalMark
       {
          get
          {
             return (AverageMonthMarks + (MidtermMark * 2) + (FinalMark * 3)) / 6;
          }
       }
-      internal protected char TotalGrade
+      protected internal char TotalGrade
       {
          get
          {
@@ -67,7 +67,7 @@ namespace GraddingSystem
             }
          }
       }
-      internal protected bool AddMonthlyMark(float mark)
+      protected internal bool AddMonthlyMark(float mark)
       {
          if (IsMarkValid(mark))
          {
@@ -79,7 +79,7 @@ namespace GraddingSystem
             return false;
          }
       }
-      internal protected bool AddMidtermMark(float mark)
+      protected internal bool AddMidtermMark(float mark)
       {
          if (IsMarkValid(mark))
          {
@@ -91,7 +91,7 @@ namespace GraddingSystem
             return false;
          }
       }
-      internal protected bool AddFinalMark(float mark)
+      protected internal bool AddFinalMark(float mark)
       {
          if (IsMarkValid(mark))
          {
