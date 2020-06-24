@@ -111,15 +111,7 @@ namespace GraddingSystem
       }
       private static bool IsMarkValid(float mark)
       {
-         if (mark >= 0 && mark <= 10)
-         {
-
-            return true;
-         }
-         else
-         {
-            return false;
-         }
+         return mark >= 0 && mark <= 10;
       }
    }
 }
