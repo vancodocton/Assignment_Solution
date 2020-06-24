@@ -25,6 +25,13 @@ namespace GraddingSystem
       {
          get
          {
+            foreach (var mark in MonthMarks)
+            {
+               if (mark < 4)
+               {
+                  return 'F';
+               }
+            }
             if (FinalMark < 5 || MidtermMark < 5)
             {
                return 'F';

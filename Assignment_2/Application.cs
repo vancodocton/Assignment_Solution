@@ -8,22 +8,13 @@ namespace GraddingSystem
       internal protected void Run()
       {
          int userChoice;
+         Menu menu = new Menu();
          do
          {
-            DisplayMenu();
+            menu.DisplayMenu();
             userChoice = GetUserChoice();
-            ExecuteOption(userChoice);
+            ExecuteOption(menu, userChoice);
          } while (userChoice != 0);
-      }
-      private static void DisplayMenu()
-      {
-         Console.WriteLine("=======================================================");
-         Console.WriteLine("       Student Grading Calculation ");
-         Console.WriteLine("=======================================================");
-         Console.WriteLine(" Press 1 to calculate total grade");
-         Console.WriteLine(" Press 2 to get help");
-         Console.WriteLine(" Press 0 to exit the program");
-         Console.WriteLine("=======================================================");
       }
       private static int GetUserChoice()
       {
@@ -34,7 +25,7 @@ namespace GraddingSystem
          } while (!int.TryParse(Console.ReadLine(), out inp) || inp < 0 || inp > 2);
          return inp;
       }
-      private static void ExecuteOption(int userChoice)
+      private static void ExecuteOption(Menu menu, int userChoice)
       {
          switch (userChoice)
          {
@@ -42,19 +33,14 @@ namespace GraddingSystem
                CalculateTotalGrade();
                break;
             case 2:
-               DisplayHelpMessage();
+               menu.DisplayHelpMessage();
                break;
             case 0:
-               DisplayExitMessage();
+               menu.DisplayExitMessage();
                break;
             default:
                break;
          }
-      }
-      private static void DisplayExitMessage()
-      {
-         Console.Write(" Thanks for using. Press any key to exit...");
-         _ = Console.ReadKey();
       }
       private static void CalculateTotalGrade()
       {
@@ -70,7 +56,6 @@ namespace GraddingSystem
                Console.Write(" {0,-45}", $"Enter grade of the {ordinal[i]} Monthly Exam: ");
             } while (!float.TryParse(Console.ReadLine(), out res) || !grade.AddMonthlyMark(res));
          }
-
 
          do
          {
@@ -88,17 +73,6 @@ namespace GraddingSystem
          Console.WriteLine(" {0,-45}{1:F2}", "The Final Exam's mark: ", grade.FinalMark);
          Console.WriteLine(" {0,-45}{1:F2}", "The total mark: ", grade.TotalMark);
          Console.WriteLine(" {0,-45}{1}", "The total grade: ", grade.TotalGrade);
-      }
-      private static void DisplayHelpMessage()
-      {
-         Console.WriteLine(" 1.The grade is a real number in the range from 0 to 10");
-         Console.WriteLine(" 2.The grade of Midterm or Final Exam is under 5, the ");
-         Console.WriteLine("   total grade is definitely Fail.");
-         Console.WriteLine(" 3. The grade scale:");
-         Console.WriteLine("\t* [0;5)  -> Fail        -> F");
-         Console.WriteLine("\t* [5;8)  -> Pass        -> P");
-         Console.WriteLine("\t* [8;10) -> Merit       -> M");
-         Console.WriteLine("\t* 10     -> Distinction -> D");
       }
    }
 }
