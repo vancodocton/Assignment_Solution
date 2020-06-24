@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment_2
 {
-   public class Application
+   class Application
    {
       public void Run()
       {
@@ -30,15 +30,12 @@ namespace Assignment_2
       }
       private static int GetUserChoice()
       {
-         int res;
+         int inp;
          do
          {
-            do
-            {
-               Console.Write(" Enter user choice [0 -> 2]: ");
-            } while (!int.TryParse(Console.ReadLine(), out res));
-         } while (res < 0 || res > 2);
-         return res;
+            Console.Write(" Enter user choice [0 -> 2]: ");
+         } while (!int.TryParse(Console.ReadLine(), out inp) || inp < 0 || inp > 2);
+         return inp;
       }
       private static void ExecuteOption(int userChoice)
       {
@@ -64,50 +61,43 @@ namespace Assignment_2
       }
       private static void CalculateTotalGrade()
       {
-         Grade grade = new Grade();
+         GradeRecord grade = new GradeRecord();
 
-         string[] indexes = new string[] { "first", "second", "third", "fourth" };
+         string[] ordinal = new string[] { "first", "second", "third", "fourth" };
          float res;
 
          for (int i = 0; i < 4; i++)
          {
             do
             {
-               do
-               {
-                  Console.Write(" {0,-45}", $"Enter grade of the {indexes[i]} Monthly Exam: ");
-               } while (!float.TryParse(Console.ReadLine(), out res));
-            } while (!grade.AddMonthlyGrade(res));
+               Console.Write(" {0,-45}", $"Enter grade of the {ordinal[i]} Monthly Exam: ");
+            } while (!float.TryParse(Console.ReadLine(), out res) || !grade.AddMonthlyMark(res));
          }
 
-         do
-         {
-            do
-            {
-               Console.Write(" {0,-45}", "Enter grade of the Midterm Exam: ");
-            } while (!float.TryParse(Console.ReadLine(), out res));
-         } while (!grade.AddMidtermGrade(res));
 
          do
          {
-            do
-            {
-               Console.Write(" {0,-45}", "Enter grade of the Final Exam: ");
-            } while (!float.TryParse(Console.ReadLine(), out res));
-         } while (!grade.AddFinalGrade(res));
+            Console.Write(" {0,-45}", "Enter grade of the Midterm Exam: ");
+         } while (!float.TryParse(Console.ReadLine(), out res) || !grade.AddMidtermMark(res));
+
+         do
+         {
+            Console.Write(" {0,-45}", "Enter grade of the Final Exam: ");
+         } while (!float.TryParse(Console.ReadLine(), out res) || !grade.AddFinalMark(res));
+
          Console.WriteLine("\n=======================================================");
-         Console.WriteLine(" {0,-45}{1:F2}", "The monthly Exam's average grade: ", grade.Monthly.Average());
-         Console.WriteLine(" {0,-45}{1:F2}", "The Midterm Exam's grade: ", grade.Midterm);
-         Console.WriteLine(" {0,-45}{1:F2}", "The Final Exam's grade: ", grade.Final);
-         Console.WriteLine(" {0,-45}{1:F2}", "The total grade (number): ", grade.Total);
-         Console.WriteLine(" {0,-45}{1}", "The total grade (char): ", grade.GetGrade());
+         Console.WriteLine(" {0,-45}{1:F2}", "The monthly Exam's average mark: ", grade.MonthMarks.Average());
+         Console.WriteLine(" {0,-45}{1:F2}", "The Midterm Exam's mark: ", grade.MidtermMark);
+         Console.WriteLine(" {0,-45}{1:F2}", "The Final Exam's mark: ", grade.FinalMark);
+         Console.WriteLine(" {0,-45}{1:F2}", "The total mark: ", grade.TotalMark);
+         Console.WriteLine(" {0,-45}{1}", "The total grade: ", grade.TotalGrade);
       }
       private static void DisplayHelpMessage()
       {
          Console.WriteLine(" 1.The grade is a real number in the range from 0 to 10");
          Console.WriteLine(" 2.The grade of Midterm or Final Exam is under 5, the ");
          Console.WriteLine("   total grade is definitely Fail.");
-         Console.WriteLine(" 3. The grade ladder:");
+         Console.WriteLine(" 3. The grade scale:");
          Console.WriteLine("\t* [0;5)  -> Fail        -> F");
          Console.WriteLine("\t* [5;8)  -> Pass        -> P");
          Console.WriteLine("\t* [8;10) -> Merit       -> M");
