@@ -5,11 +5,11 @@ namespace GraddingSystem
 {
    internal class GradeRecord
    {
-      internal List<float> MonthMarks { get; private set; }
-      internal float MidtermMark { get; private set; }
-      internal float FinalMark { get; private set; }
+      internal protected List<float> MonthMarks { get; private set; }
+      internal protected float MidtermMark { get; private set; }
+      internal protected float FinalMark { get; private set; }
 
-      internal float TotalMark
+      internal protected float TotalMark
       {
          get
          {
@@ -21,7 +21,7 @@ namespace GraddingSystem
                return (MonthMarks.Average() + (MidtermMark * 2) + (FinalMark * 3)) / 6;
          }
       }
-      internal char TotalGrade
+      internal protected char TotalGrade
       {
          get
          {
@@ -47,7 +47,7 @@ namespace GraddingSystem
             }
          }
       }
-      internal bool AddMonthlyMark(float mark)
+      internal protected bool AddMonthlyMark(float mark)
       {
          if (IsMarkValid(mark))
          {
@@ -59,7 +59,7 @@ namespace GraddingSystem
             return false;
          }
       }
-      internal bool AddMidtermMark(float mark)
+      internal protected bool AddMidtermMark(float mark)
       {
          if (IsMarkValid(mark))
          {
@@ -89,7 +89,7 @@ namespace GraddingSystem
          MidtermMark = 0;
          FinalMark = 0;
       }
-      private protected bool IsMarkValid(float mark)
+      private static bool IsMarkValid(float mark)
       {
          if (mark >= 0 && mark <= 10)
          {

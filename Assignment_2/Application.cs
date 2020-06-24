@@ -5,7 +5,7 @@ namespace GraddingSystem
 {
    internal class Application
    {
-      public void Run()
+      internal protected void Run()
       {
          int userChoice;
          do
