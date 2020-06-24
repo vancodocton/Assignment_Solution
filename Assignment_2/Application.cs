@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace GraddingSystem
 {
@@ -25,7 +24,7 @@ namespace GraddingSystem
          } while (!int.TryParse(Console.ReadLine(), out inp) || inp < 0 || inp > 2);
          return inp;
       }
-      private static void ExecuteOption(Menu menu, int userChoice)
+      private void ExecuteOption(Menu menu, int userChoice)
       {
          switch (userChoice)
          {
@@ -42,37 +41,39 @@ namespace GraddingSystem
                break;
          }
       }
-      private static void CalculateTotalGrade()
+      protected void CalculateTotalGrade()
       {
-         GradeRecord grade = new GradeRecord();
-
-         string[] ordinal = new string[] { "first", "second", "third", "fourth" };
-         float res;
+         GradeRecord gradeRecord = new GradeRecord();
+         string[] ordinal = new string[] { "first", "second", "third", "fourth", "fifth" };
+         float mark;
 
          for (int i = 0; i < 4; i++)
          {
             do
             {
-               Console.Write(" {0,-45}", $"Enter grade of the {ordinal[i]} Monthly Exam: ");
-            } while (!float.TryParse(Console.ReadLine(), out res) || !grade.AddMonthlyMark(res));
+               Console.Write(" {0,-45}", $"Enter mark of the {ordinal[i]} Month Exam: ");
+            } while (!float.TryParse(Console.ReadLine(), out mark) || !gradeRecord.AddMonthlyMark(mark));
          }
 
          do
          {
-            Console.Write(" {0,-45}", "Enter grade of the Midterm Exam: ");
-         } while (!float.TryParse(Console.ReadLine(), out res) || !grade.AddMidtermMark(res));
+            Console.Write(" {0,-45}", "Enter mark of the Midterm Exam: ");
+         } while (!float.TryParse(Console.ReadLine(), out mark) || !gradeRecord.AddMidtermMark(mark));
 
          do
          {
-            Console.Write(" {0,-45}", "Enter grade of the Final Exam: ");
-         } while (!float.TryParse(Console.ReadLine(), out res) || !grade.AddFinalMark(res));
+            Console.Write(" {0,-45}", "Enter mark of the Final Exam: ");
+         } while (!float.TryParse(Console.ReadLine(), out mark) || !gradeRecord.AddFinalMark(mark));
 
          Console.WriteLine("\n=======================================================");
-         Console.WriteLine(" {0,-45}{1:F2}", "The monthly Exam's average mark: ", grade.MonthMarks.Average());
-         Console.WriteLine(" {0,-45}{1:F2}", "The Midterm Exam's mark: ", grade.MidtermMark);
-         Console.WriteLine(" {0,-45}{1:F2}", "The Final Exam's mark: ", grade.FinalMark);
-         Console.WriteLine(" {0,-45}{1:F2}", "The total mark: ", grade.TotalMark);
-         Console.WriteLine(" {0,-45}{1}", "The total grade: ", grade.TotalGrade);
+         Console.WriteLine(" {0,-45}{1:F2}", "The Month Exam's Average Mark: ", gradeRecord.AverageMonthMarks);
+         Console.WriteLine(" {0,-45}{1:F2}", "The Midterm Exam's Mark: ", gradeRecord.MidtermMark);
+         Console.WriteLine(" {0,-45}{1:F2}", "The Final Exam's Mark: ", gradeRecord.FinalMark);
+         Console.WriteLine(" {0,-45}{1:F2}", "The Total Mark: ", gradeRecord.TotalMark);
+         Console.WriteLine(" {0,-45}{1}", "The Total Grade: ", gradeRecord.TotalGrade);
+
+         //gradeRecord = null;
+         //GC.Collect();
       }
    }
 }

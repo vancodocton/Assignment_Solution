@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace GraddingSystem
 {
    internal class GradeRecord
    {
-      internal protected List<float> MonthMarks { get; private set; }
+      protected List<float> MonthMarks { get; private set; }
       internal protected float MidtermMark { get; private set; }
       internal protected float FinalMark { get; private set; }
 
-      internal protected float TotalMark
+      internal protected float AverageMonthMarks
       {
          get
          {
@@ -18,7 +17,21 @@ namespace GraddingSystem
                return 0;
             }
             else
-               return (MonthMarks.Average() + (MidtermMark * 2) + (FinalMark * 3)) / 6;
+            {
+               float averageMark = 0;
+               foreach (float mark in MonthMarks)
+               {
+                  averageMark += mark;
+               }
+               return averageMark / MonthMarks.Count;
+            }
+         }
+      }
+      internal protected float TotalMark
+      {
+         get
+         {
+            return (AverageMonthMarks + (MidtermMark * 2) + (FinalMark * 3)) / 6;
          }
       }
       internal protected char TotalGrade
