@@ -1,5 +1,5 @@
 ﻿using GraddingSystem;
-namespace GraddingSystem
+namespace Assignment_2
 {
    class Program
    {
