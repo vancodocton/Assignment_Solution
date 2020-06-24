@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Assignment_2
+namespace GraddingSystem
 {
-   class Application
+   internal class Application
    {
       public void Run()
       {

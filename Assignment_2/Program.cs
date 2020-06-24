@@ -1,6 +1,5 @@
-﻿using System;
-
-namespace Assignment_2
+﻿using GraddingSystem;
+namespace GraddingSystem
 {
    class Program
    {

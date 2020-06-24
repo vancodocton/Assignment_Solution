@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Assignment_2
+namespace GraddingSystem
 {
    internal class GradeRecord
    {
