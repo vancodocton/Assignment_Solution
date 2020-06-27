@@ -61,7 +61,7 @@ namespace GraddingSystem
             do
             {
                Console.Write(" {0,-45}", $"Enter mark of the {ordinal[i]} Month Exam: ");
-            } while (!float.TryParse(Console.ReadLine(), out float mark) || !Record.AddMonthlyMark(mark));
+            } while (!float.TryParse(Console.ReadLine(), out float mark) || !Record.AddMonthMark(mark));
          }
       }
       private void AddMidtermMark()

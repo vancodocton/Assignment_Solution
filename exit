@@ -1,0 +1,102 @@
+[33mcommit 02d8d36bdd7939d0a909a61a687f69a3035fd939[m[33m ([m[1;36mHEAD -> [m[1;32mNoRecruise[m[33m, [m[1;31morigin/NoRecruise[m[33m)[m
+Author: vancodocton <user.email>
+Date:   Wed Jun 24 12:02:16 2020 +0700
+
+    Final Version 1.0
+
+[1mdiff --git a/Assignment_2/Application.cs b/Assignment_2/Application.cs[m
+[1mindex e79f61b..86f1c08 100644[m
+[1m--- a/Assignment_2/Application.cs[m
+[1m+++ b/Assignment_2/Application.cs[m
+[36m@@ -4,6 +4,7 @@[m [mnamespace GraddingSystem[m
+ {[m
+    internal class Application[m
+    {[m
+[32m+[m[32m      public GradeRecord Record = new GradeRecord();[m
+       internal protected void Run()[m
+       {[m
+          int userChoice;[m
+[36m@@ -17,12 +18,12 @@[m [mnamespace GraddingSystem[m
+       }[m
+       private static int GetUserChoice()[m
+       {[m
+[31m-         int inp;[m
+[32m+[m[32m         int userChoice;[m
+          do[m
+          {[m
+             Console.Write(" Enter user choice [0 -> 2]: ");[m
+[31m-         } while (!int.TryParse(Console.ReadLine(), out inp) || inp < 0 || inp > 2);[m
+[31m-         return inp;[m
+[32m+[m[32m         } while (!int.TryParse(Console.ReadLine(), out userChoice) || userChoice < 0 || userChoice > 2);[m
+[32m+[m[32m         return userChoice;[m
+       }[m
+       private void ExecuteOption(Menu menu, int userChoice)[m
+       {[m
+[36m@@ -41,39 +42,50 @@[m [mnamespace GraddingSystem[m
+                break;[m
+          }[m
+       }[m
+[31m-      protected void CalculateTotalGrade()[m
+[32m+[m[32m      private void CalculateTotalGrade()[m
+[32m+[m[32m      {[m
+[32m+[m[32m         AddMonthMarks();[m
+[32m+[m[32m         AddMidtermMark();[m
+[32m+[m[32m         AddFinalMark();[m
+[32m+[m[32m         DisplayGradeStatus();[m
+[32m+[m
+[32m+[m[32m         //gradeRecord = null;[m
+[32m+[m[32m         //GC.Collect();[m
+[32m+[m[32m      }[m
+[32m+[m[32m      private void AddMonthMarks()[m
+       {[m
+[31m-         GradeRecord gradeRecord = new GradeRecord();[m
+          string[] ordinal = new string[] { "first", "second", "third", "fourth", "fifth" };[m
+[31m-         float mark;[m
+ [m
+          for (int i = 0; i < 4; i++)[m
+          {[m
+             do[m
+             {[m
+                Console.Write(" {0,-45}", $"Enter mark of the {ordinal[i]} Month Exam: ");[m
+[31m-            } while (!float.TryParse(Console.ReadLine(), out mark) || !gradeRecord.AddMonthlyMark(mark));[m
+[32m+[m[32m            } while (!float.TryParse(Console.ReadLine(), out float mark) || !Record.AddMonthlyMark(mark));[m
+          }[m
+[31m-[m
+[32m+[m[32m      }[m
+[32m+[m[32m      private void AddMidtermMark()[m
+[32m+[m[32m      {[m
+          do[m
+          {[m
+             Console.Write(" {0,-45}", "Enter mark of the Midterm Exam: ");[m
+[31m-         } while (!float.TryParse(Console.ReadLine(), out mark) || !gradeRecord.AddMidtermMark(mark));[m
+[31m-[m
+[32m+[m[32m         } while (!float.TryParse(Console.ReadLine(), out float mark) || !Record.AddMidtermMark(mark));[m
+[32m+[m[32m      }[m
+[32m+[m[32m      private void AddFinalMark()[m
+[32m+[m[32m      {[m
+          do[m
+          {[m
+             Console.Write(" {0,-45}", "Enter mark of the Final Exam: ");[m
+[31m-         } while (!float.TryParse(Console.ReadLine(), out mark) || !gradeRecord.AddFinalMark(mark));[m
+[31m-[m
+[32m+[m[32m         } while (!float.TryParse(Console.ReadLine(), out float mark) || !Record.AddFinalMark(mark));[m
+[32m+[m[32m      }[m
+[32m+[m[32m      private void DisplayGradeStatus()[m
+[32m+[m[32m      {[m
+          Console.WriteLine("\n=======================================================");[m
+[31m-         Console.WriteLine(" {0,-45}{1:F2}", "The Month Exam's Average Mark: ", gradeRecord.AverageMonthMarks);[m
+[31m-         Console.WriteLine(" {0,-45}{1:F2}", "The Midterm Exam's Mark: ", gradeRecord.MidtermMark);[m
+[31m-         Console.WriteLine(" {0,-45}{1:F2}", "The Final Exam's Mark: ", gradeRecord.FinalMark);[m
+[31m-         Console.WriteLine(" {0,-45}{1:F2}", "The Total Mark: ", gradeRecord.TotalMark);[m
+[31m-         Console.WriteLine(" {0,-45}{1}", "The Total Grade: ", gradeRecord.TotalGrade);[m
+[31m-[m
+[31m-         //gradeRecord = null;[m
+[31m-         //GC.Collect();[m
+[32m+[m[32m         Console.WriteLine(" {0,-45}{1:F2}", "The Month Exam's Average Mark: ", Record.AverageMonthMarks);[m
+[32m+[m[32m         Console.WriteLine(" {0,-45}{1:F2}", "The Midterm Exam's Mark: ", Record.MidtermMark);[m
+[32m+[m[32m         Console.WriteLine(" {0,-45}{1:F2}", "The Final Exam's Mark: ", Record.FinalMark);[m
+[32m+[m[32m         Console.WriteLine(" {0,-45}{1:F2}", "The Total Mark: ", Record.TotalMark);[m
+[32m+[m[32m         Console.WriteLine(" {0,-45}{1}", "The Total Grade: ", Record.TotalGrade);[m
+       }[m
+    }[m
+ }[m

@@ -67,7 +67,7 @@ namespace GraddingSystem
             }
          }
       }
-      protected internal bool AddMonthlyMark(float mark)
+      protected internal bool AddMonthMark(float mark)
       {
          if (IsMarkValid(mark))
          {
