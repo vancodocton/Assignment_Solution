@@ -53,7 +53,7 @@ namespace GraddingSystem
       private void AddMonthMarks()
       {
          string[] ordinal = new string[] { "first", "second", "third", "fourth", "fifth" };
-
+         Console.WriteLine("=======================================================");
          for (int i = 0; i < 4; i++)
          {
             do
@@ -64,6 +64,7 @@ namespace GraddingSystem
       }
       private void AddMidtermMark()
       {
+         Console.WriteLine("  =======");
          do
          {
             Console.Write(" {0,-45}", "Enter mark of the Midterm Exam: ");
@@ -71,6 +72,7 @@ namespace GraddingSystem
       }
       private void AddFinalMark()
       {
+         Console.WriteLine("  =======");
          do
          {
             Console.Write(" {0,-45}", "Enter mark of the Final Exam: ");
@@ -78,7 +80,7 @@ namespace GraddingSystem
       }
       private void DisplayGradeStatus()
       {
-         Console.WriteLine("\n=======================================================");
+         Console.WriteLine("=======================================================");
          Console.WriteLine(" {0,-45}{1:F2}", "The Month Exam's Average Mark: ", Record.AverageMonthMarks);
          Console.WriteLine(" {0,-45}{1:F2}", "The Midterm Exam's Mark: ", Record.MidtermMark);
          Console.WriteLine(" {0,-45}{1:F2}", "The Final Exam's Mark: ", Record.FinalMark);
