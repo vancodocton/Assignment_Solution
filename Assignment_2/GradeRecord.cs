@@ -45,25 +45,27 @@ namespace GraddingSystem
                   return 'F';
                }
             }
-            if (FinalMark < 5 || MidtermMark < 5)
+            if (FinalMark < 5 || MidtermMark < 5 || TotalMark < 4.5)
             {
                return 'F';
-            }
-            else if (TotalMark < 4.5)
-            {
-               return 'F';
-            }
-            else if (TotalMark < 8)
-            {
-               return 'P';
-            }
-            else if (TotalMark < 10)
-            {
-               return 'M';
             }
             else
             {
-               return 'D';
+               if (TotalMark < 8)
+               {
+                  return 'P';
+               }
+               else
+               {
+                  if (TotalMark < 10)
+                  {
+                     return 'M';
+                  }
+                  else
+                  {
+                     return 'D';
+                  }
+               }
             }
          }
       }

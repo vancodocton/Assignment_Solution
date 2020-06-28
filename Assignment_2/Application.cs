@@ -4,7 +4,7 @@ namespace GraddingSystem
 {
    internal class Application
    {
-      public GradeRecord Record = new GradeRecord();
+      private GradeRecord Record { get; set; }
       internal protected void Run()
       {
          int userChoice;
@@ -44,13 +44,11 @@ namespace GraddingSystem
       }
       private void CalculateTotalGrade()
       {
+         Record = new GradeRecord();
          AddMonthMarks();
          AddMidtermMark();
          AddFinalMark();
          DisplayGradeStatus();
-
-         //gradeRecord = null;
-         //GC.Collect();
       }
       private void AddMonthMarks()
       {

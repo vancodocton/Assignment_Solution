@@ -2,7 +2,7 @@
 
 namespace GraddingSystem
 {
-   class Menu
+   internal class Menu
    {
       internal protected void DisplayMenu()
       {
