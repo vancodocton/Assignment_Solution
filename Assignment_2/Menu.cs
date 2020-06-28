@@ -27,7 +27,7 @@ namespace GraddingSystem
       }
       internal protected void DisplayExitMessage()
       {
-         Console.Write(" Thanks for using. Press any key to exit...");
+         Console.Write(" Thanks for using. Press any key to exit... ");
          _ = Console.ReadKey();
       }
    }
