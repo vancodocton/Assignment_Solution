@@ -1,15 +1,16 @@
 ﻿using System;
 
-namespace GraddingSystem
+namespace Assignment_2
 {
    internal class Application
    {
       private GradeRecord Record { get; set; }
       private readonly Menu Menu = new Menu();
+
       internal protected void Run()
       {
          int userChoice;
-         
+
          do
          {
             Menu.DisplayMenu();
@@ -49,17 +50,17 @@ namespace GraddingSystem
          AddMonthlyMarks();
          AddMidtermMark();
          AddFinalMark();
-         DisplayGradeStatus();
+         Menu.DisplayGradeStatus(Record);
       }
       private void AddMonthlyMarks()
       {
-         string[] ordinal = new string[] { "first", "second", "third", "fourth", "fifth" };
+         string[] ordinal = new string[] { "first", "second", "third", "fourth" };
          Console.WriteLine("=======================================================");
          for (int i = 0; i < 4; i++)
          {
             do
             {
-               Console.Write(" {0,-45}", $"Enter mark of the {ordinal[i]} Month Exam: ");
+               Console.Write(" {0,-" + Utils.MAX_STRING_LINE + "}", $"Enter mark of the {ordinal[i]} Month Exam: ");
             } while (!float.TryParse(Console.ReadLine(), out float mark) || !Record.AddMonthMark(mark));
          }
       }
@@ -68,7 +69,7 @@ namespace GraddingSystem
          Console.WriteLine("  =======");
          do
          {
-            Console.Write(" {0,-45}", "Enter mark of the Midterm Exam: ");
+            Console.Write(" {0,-" + Utils.MAX_STRING_LINE + "}", "Enter mark of the Midterm Exam: ");
          } while (!float.TryParse(Console.ReadLine(), out float mark) || !Record.AddMidtermMark(mark));
       }
       private void AddFinalMark()
@@ -76,17 +77,9 @@ namespace GraddingSystem
          Console.WriteLine("  =======");
          do
          {
-            Console.Write(" {0,-45}", "Enter mark of the Final Exam: ");
+            Console.Write(" {0,-" + Utils.MAX_STRING_LINE + "}", "Enter mark of the Final Exam: ");
          } while (!float.TryParse(Console.ReadLine(), out float mark) || !Record.AddFinalMark(mark));
       }
-      private void DisplayGradeStatus()
-      {
-         Console.WriteLine("=======================================================");
-         Console.WriteLine(" {0,-45}{1:F2}", "The Month Exam's Average Mark: ", Record.AverageMonthMarks);
-         Console.WriteLine(" {0,-45}{1:F2}", "The Midterm Exam's Mark: ", Record.MidtermMark);
-         Console.WriteLine(" {0,-45}{1:F2}", "The Final Exam's Mark: ", Record.FinalMark);
-         Console.WriteLine(" {0,-45}{1:F2}", "The Total Mark: ", Record.TotalMark);
-         Console.WriteLine(" {0,-45}{1}", "The Total Grade: ", Record.TotalGrade);
-      }
+
    }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GraddingSystem
+namespace Assignment_2
 {
    internal class GradeRecord
    {
@@ -105,7 +105,7 @@ namespace GraddingSystem
             return false;
          }
       }
-      internal GradeRecord()
+      public GradeRecord()
       {
          MonthlyMarks = new List<float>();
          MidtermMark = 0;

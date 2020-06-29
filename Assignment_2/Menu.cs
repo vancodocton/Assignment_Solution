@@ -1,9 +1,10 @@
 ﻿using System;
 
-namespace GraddingSystem
+namespace Assignment_2
 {
    internal class Menu
    {
+     
       internal protected void DisplayMenu()
       {
          Console.WriteLine("=======================================================");
@@ -32,6 +33,16 @@ namespace GraddingSystem
          Console.WriteLine("=======================================================");
          Console.Write(" Thanks for using. Press any key to exit... ");
          _ = Console.ReadKey();
+      }
+
+      public void DisplayGradeStatus(GradeRecord record)
+      {
+         Console.WriteLine("=======================================================");
+         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}", "The Month Exam's Average Mark: ", record.AverageMonthMarks);
+         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}", "The Midterm Exam's Mark: ", record.MidtermMark);
+         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}", "The Final Exam's Mark: ", record.FinalMark);
+         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}", "The Total Mark: ", record.TotalMark);
+         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1}", "The Total Grade: ", record.TotalGrade);
       }
    }
 }
