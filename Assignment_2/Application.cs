@@ -5,15 +5,16 @@ namespace GraddingSystem
    internal class Application
    {
       private GradeRecord Record { get; set; }
+      private readonly Menu Menu = new Menu();
       internal protected void Run()
       {
          int userChoice;
-         Menu menu = new Menu();
+         
          do
          {
-            menu.DisplayMenu();
+            Menu.DisplayMenu();
             userChoice = GetUserChoice();
-            ExecuteOption(menu, userChoice);
+            ExecuteOption(userChoice);
          } while (userChoice != 0);
       }
       private static int GetUserChoice()
@@ -25,7 +26,7 @@ namespace GraddingSystem
          } while (!int.TryParse(Console.ReadLine(), out userChoice) || userChoice < 0 || userChoice > 2);
          return userChoice;
       }
-      private void ExecuteOption(Menu menu, int userChoice)
+      private void ExecuteOption(int userChoice)
       {
          switch (userChoice)
          {
@@ -33,10 +34,10 @@ namespace GraddingSystem
                CalculateTotalGrade();
                break;
             case 2:
-               menu.DisplayHelpMessage();
+               Menu.DisplayHelpMessage();
                break;
             case 0:
-               menu.DisplayExitMessage();
+               Menu.DisplayExitMessage();
                break;
             default:
                break;

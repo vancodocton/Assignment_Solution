@@ -22,10 +22,10 @@ namespace GraddingSystem
          Console.WriteLine("    Midterm or Final Exam is under 5, the total grade");
          Console.WriteLine("    is definitely Fail.");
          Console.WriteLine(" 3. The grade scale:");
-         Console.WriteLine("\t• Total mark in [0;5)  -> Failed      -> F");
-         Console.WriteLine("\t• Total mark in [5;8)  -> Pass        -> P");
-         Console.WriteLine("\t• Total mark in [8;10) -> Merit       -> M");
-         Console.WriteLine("\t• Total mark is 10     -> Distinction -> D");
+         Console.WriteLine("\t+ Total mark in [0;5)  -> Failed      -> F");
+         Console.WriteLine("\t+ Total mark in [5;8)  -> Pass        -> P");
+         Console.WriteLine("\t+ Total mark in [8;10) -> Merit       -> M");
+         Console.WriteLine("\t+ Total mark is 10     -> Distinction -> D");
       }
       internal protected void DisplayExitMessage()
       {
