@@ -4,7 +4,7 @@ namespace GraddingSystem
 {
    internal class GradeRecord
    {
-      protected List<float> MonthMarks { get; private set; }
+      protected List<float> MonthlyMarks { get; private set; }
       protected internal float MidtermMark { get; private set; }
       protected internal float FinalMark { get; private set; }
 
@@ -12,18 +12,18 @@ namespace GraddingSystem
       {
          get
          {
-            if (MonthMarks.Count == 0)
+            if (MonthlyMarks.Count == 0)
             {
                return 0;
             }
             else
             {
                float averageMark = 0;
-               foreach (float mark in MonthMarks)
+               foreach (float mark in MonthlyMarks)
                {
                   averageMark += mark;
                }
-               return averageMark / MonthMarks.Count;
+               return averageMark / MonthlyMarks.Count;
             }
          }
       }
@@ -38,7 +38,7 @@ namespace GraddingSystem
       {
          get
          {
-            foreach (var mark in MonthMarks)
+            foreach (var mark in MonthlyMarks)
             {
                if (mark < 4)
                {
@@ -73,7 +73,7 @@ namespace GraddingSystem
       {
          if (IsMarkValid(mark))
          {
-            MonthMarks.Add(mark);
+            MonthlyMarks.Add(mark);
             return true;
          }
          else
@@ -107,7 +107,7 @@ namespace GraddingSystem
       }
       internal GradeRecord()
       {
-         MonthMarks = new List<float>();
+         MonthlyMarks = new List<float>();
          MidtermMark = 0;
          FinalMark = 0;
       }

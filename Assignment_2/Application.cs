@@ -45,12 +45,12 @@ namespace GraddingSystem
       private void CalculateTotalGrade()
       {
          Record = new GradeRecord();
-         AddMonthMarks();
+         AddMonthlyMarks();
          AddMidtermMark();
          AddFinalMark();
          DisplayGradeStatus();
       }
-      private void AddMonthMarks()
+      private void AddMonthlyMarks()
       {
          string[] ordinal = new string[] { "first", "second", "third", "fourth", "fifth" };
          Console.WriteLine("=======================================================");
