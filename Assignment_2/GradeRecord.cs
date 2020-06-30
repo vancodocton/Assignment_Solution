@@ -105,7 +105,7 @@ namespace Assignment_2
             return false;
          }
       }
-      public GradeRecord()
+      protected internal GradeRecord()
       {
          MonthlyMarks = new List<float>();
          MidtermMark = 0;

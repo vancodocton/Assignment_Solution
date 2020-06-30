@@ -3,9 +3,13 @@ namespace Assignment_2
 {
    internal class Application
    {
-      private GradeRecord Record = new GradeRecord();
-      private readonly Menu Menu = new Menu();
-
+      private GradeRecord Record { get; set; }
+      private Menu Menu { get; set; }
+      protected internal Application()
+      {
+         Record = new GradeRecord();
+         Menu = new Menu();
+      }
       private void SetConsoleProperty()
       {
          Console.Title = "Student Total Grade Calculation";
@@ -14,7 +18,7 @@ namespace Assignment_2
          Console.BufferWidth = Console.WindowWidth;
          Console.BufferHeight = Console.WindowHeight;
       }
-      internal protected void Run()
+      protected internal void Run()
       {
          SetConsoleProperty();
          int userChoice;
