@@ -4,7 +4,6 @@ namespace Assignment_2
 {
    internal class Menu
    {
-     
       internal protected void DisplayMenu()
       {
          Console.WriteLine("=======================================================");
@@ -31,7 +30,6 @@ namespace Assignment_2
          Console.WriteLine("=======================================================");
          Console.Write(" Thanks for using. Press any key to exit... ");
       }
-
       public void DisplayGradeStatus(GradeRecord record)
       {
          Console.WriteLine("=======================================================");

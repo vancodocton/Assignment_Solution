@@ -5,11 +5,13 @@ namespace Assignment_2
    {
       private GradeRecord Record { get; set; }
       private Menu Menu { get; set; }
+
       protected internal Application()
       {
          Record = new GradeRecord();
          Menu = new Menu();
       }
+
       private void SetConsoleProperty()
       {
          Console.Title = "Student Total Grade Calculation";

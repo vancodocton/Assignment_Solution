@@ -7,7 +7,6 @@ namespace Assignment_2
       protected List<float> MonthlyMarks { get; private set; }
       protected internal float MidtermMark { get; private set; }
       protected internal float FinalMark { get; private set; }
-
       protected internal float AverageMonthMarks
       {
          get
@@ -69,6 +68,18 @@ namespace Assignment_2
             }
          }
       }
+
+      protected internal GradeRecord()
+      {
+         MonthlyMarks = new List<float>();
+         MidtermMark = 0;
+         FinalMark = 0;
+      }
+
+      private static bool IsMarkValid(float mark)
+      {
+         return mark >= 0 && mark <= 10;
+      }
       protected internal bool AddMonthMark(float mark)
       {
          if (IsMarkValid(mark))
@@ -104,16 +115,6 @@ namespace Assignment_2
          {
             return false;
          }
-      }
-      protected internal GradeRecord()
-      {
-         MonthlyMarks = new List<float>();
-         MidtermMark = 0;
-         FinalMark = 0;
-      }
-      private static bool IsMarkValid(float mark)
-      {
-         return mark >= 0 && mark <= 10;
       }
    }
 }
