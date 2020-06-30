@@ -8,8 +8,6 @@ namespace Assignment_2
       internal protected void DisplayMenu()
       {
          Console.WriteLine("=======================================================");
-         Console.WriteLine("       Student Grading Calculation ");
-         Console.WriteLine("=======================================================");
          Console.WriteLine(" Press 1 to calculate the total grade");
          Console.WriteLine(" Press 2 to get help");
          Console.WriteLine(" Press 0 to exit the program");
@@ -32,7 +30,6 @@ namespace Assignment_2
       {
          Console.WriteLine("=======================================================");
          Console.Write(" Thanks for using. Press any key to exit... ");
-         _ = Console.ReadKey();
       }
 
       public void DisplayGradeStatus(GradeRecord record)

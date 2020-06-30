@@ -1,22 +1,30 @@
 ﻿using System;
-
 namespace Assignment_2
 {
    internal class Application
    {
-      private GradeRecord Record { get; set; }
+      private GradeRecord Record = new GradeRecord();
       private readonly Menu Menu = new Menu();
 
+      private void SetConsoleProperties()
+      {
+         Console.Title = "Student Total Grade Calculation";
+         Console.WindowWidth = 56;
+         Console.WindowHeight = 30;
+         Console.BufferWidth = Console.WindowWidth;
+         Console.BufferHeight = Console.WindowHeight;
+      }
       internal protected void Run()
       {
+         SetConsoleProperties();
          int userChoice;
-
          do
          {
             Menu.DisplayMenu();
             userChoice = GetUserChoice();
             ExecuteOption(userChoice);
          } while (userChoice != 0);
+         _ = Console.ReadKey();
       }
       private static int GetUserChoice()
       {
@@ -46,7 +54,6 @@ namespace Assignment_2
       }
       private void CalculateTotalGrade()
       {
-         Record = new GradeRecord();
          AddMonthlyMarks();
          AddMidtermMark();
          AddFinalMark();
