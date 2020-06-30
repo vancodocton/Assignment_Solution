@@ -6,7 +6,7 @@ namespace Assignment_2
       private GradeRecord Record = new GradeRecord();
       private readonly Menu Menu = new Menu();
 
-      private void SetConsoleProperties()
+      private void SetConsoleProperty()
       {
          Console.Title = "Student Total Grade Calculation";
          Console.WindowWidth = 56;
@@ -16,7 +16,7 @@ namespace Assignment_2
       }
       internal protected void Run()
       {
-         SetConsoleProperties();
+         SetConsoleProperty();
          int userChoice;
          do
          {
