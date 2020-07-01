@@ -15,10 +15,9 @@ namespace Assignment_2
 		private void SetConsoleProperty()
 		{
 			Console.Title = "Student Total Grade Calculation";
-			Console.WindowWidth = 56;
+			Console.WindowWidth = 58;
 			Console.WindowHeight = 30;
 			Console.BufferWidth = Console.WindowWidth;
-			Console.BufferHeight = Console.WindowHeight;
 		}
 		protected internal void Run()
 		{
@@ -68,7 +67,8 @@ namespace Assignment_2
 		private void AddMonthlyMarks()
 		{
 			string[] ordinal = new string[] { "first", "second", "third", "fourth" };
-			Console.WriteLine("=======================================================");
+			Console.WriteLine(Utils.SEPARATE_LINE);
+
 			for (int i = 0; i < 4; i++)
 			{
 				do
