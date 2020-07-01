@@ -33,11 +33,21 @@ namespace Assignment_2
       public void DisplayGradeStatus(GradeRecord record)
       {
          Console.WriteLine("=======================================================");
-         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}", "The Month Exam's Average Mark: ", record.AverageMonthMarks);
-         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}", "The Midterm Exam's Mark: ", record.MidtermMark);
-         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}", "The Final Exam's Mark: ", record.FinalMark);
-         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}", "The Total Mark: ", record.TotalMark);
-         Console.WriteLine(" {0,-" + Utils.MAX_STRING_LINE + "}" + "{1}", "The Total Grade: ", record.TotalGrade);
+         Console.WriteLine(format: " {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}",
+                           arg0: "The Month Exam's Average Mark: ",
+                           arg1: record.AverageMonthlyMarks);
+         Console.WriteLine(format: " {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}",
+                           arg0: "The Midterm Exam's Mark: ",
+                           arg1: record.MidtermMark);
+         Console.WriteLine(format: " {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}",
+                           arg0: "The Final Exam's Mark: ",
+                           arg1: record.FinalMark);
+         Console.WriteLine(format: " {0,-" + Utils.MAX_STRING_LINE + "}" + "{1:F2}",
+                           arg0: "The Total Mark: ",
+                           arg1: record.TotalMark);
+         Console.WriteLine(format: " {0,-" + Utils.MAX_STRING_LINE + "}" + "{1}",
+                           arg0: "The Total Grade: ",
+                           arg1: record.TotalGrade);
       }
    }
 }

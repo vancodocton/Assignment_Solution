@@ -47,6 +47,7 @@ namespace Assignment_2
          {
             case 1:
                CalculateTotalGrade();
+               Menu.DisplayGradeStatus(Record);
                break;
             case 2:
                Menu.DisplayHelpMessage();
@@ -63,7 +64,6 @@ namespace Assignment_2
          AddMonthlyMarks();
          AddMidtermMark();
          AddFinalMark();
-         Menu.DisplayGradeStatus(Record);
       }
       private void AddMonthlyMarks()
       {

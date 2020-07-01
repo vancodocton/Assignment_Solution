@@ -7,7 +7,7 @@ namespace Assignment_2
       protected List<float> MonthlyMarks { get; private set; }
       protected internal float MidtermMark { get; private set; }
       protected internal float FinalMark { get; private set; }
-      protected internal float AverageMonthMarks
+      protected internal float AverageMonthlyMarks
       {
          get
          {
@@ -30,7 +30,7 @@ namespace Assignment_2
       {
          get
          {
-            return (AverageMonthMarks + (MidtermMark * 2) + (FinalMark * 3)) / 6;
+            return (AverageMonthlyMarks + (MidtermMark * 2) + (FinalMark * 3)) / 6;
          }
       }
       protected internal char TotalGrade
